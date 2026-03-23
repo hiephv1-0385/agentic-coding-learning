@@ -58,3 +58,4 @@ mcp.json
 /.playwright-mcp
 
 AGENTS.md
+/.vscode
