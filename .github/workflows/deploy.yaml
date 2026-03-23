@@ -51,6 +51,15 @@ jobs:
           yarn supabase link --project-ref $SUPABASE_PROJECT_ID
           yarn supabase db push --include-all
 
+      - name: Seed data
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          for file in supabase/seeds/common/*.sql; do
+            echo "Seeding: $file"
+            psql "$DATABASE_URL" -f "$file"
+          done
+
       - name: Deploy new worker version
         id: upload
         env:
