@@ -64,13 +64,13 @@ jobs:
 
           yarn opennextjs-cloudflare build --env ${{ github.event.inputs.environment || (github.ref_name == 'production' && 'production') || 'staging' }}
 
-          yarn opennextjs-cloudflare upload --env ${{ github.event.inputs.environment || (github.ref_name == 'production' && 'production') || 'staging' }} \
-            --var "NEXT_PUBLIC_SUPABASE_URL:'${{ vars.NEXT_PUBLIC_SUPABASE_URL }}'" \
-            --var "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:'${{ vars.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY }}'" | tee /tmp/upload_output
-
           echo SUPABASE_SECRET_KEY="${{ secrets.SUPABASE_SECRET_KEY }}" >> /tmp/.env.worker
 
           yarn wrangler versions secret bulk /tmp/.env.worker --env ${{ github.event.inputs.environment || (github.ref_name == 'production' && 'production') || 'staging' }}
+
+          yarn opennextjs-cloudflare upload --env ${{ github.event.inputs.environment || (github.ref_name == 'production' && 'production') || 'staging' }} \
+            --var "NEXT_PUBLIC_SUPABASE_URL:'${{ vars.NEXT_PUBLIC_SUPABASE_URL }}'" \
+            --var "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:'${{ vars.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY }}'" | tee /tmp/upload_output
 
           version_id=$(cat /tmp/upload_output | grep -oP 'Worker Version ID: \K\S+' || echo "")
           if [ -z "$version_id" ]; then
