@@ -60,7 +60,6 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
-          sudo sh -c 'echo "precedence ::ffff:0:0/96 100" >> /etc/gai.conf'
           for file in supabase/seeds/common/*.sql; do
             echo "Seeding: $file"
             psql "$DATABASE_URL" -f "$file"
