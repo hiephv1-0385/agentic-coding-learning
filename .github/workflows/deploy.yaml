@@ -51,6 +51,11 @@ jobs:
           yarn supabase link --project-ref $SUPABASE_PROJECT_ID
           yarn supabase db push --include-all
 
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends postgresql-client
+
       - name: Seed data
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
