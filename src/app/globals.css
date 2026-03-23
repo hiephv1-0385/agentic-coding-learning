@@ -1,26 +1,175 @@
 @import "tailwindcss";
 
-:root {
-	--background: #ffffff;
-	--foreground: #171717;
-}
-
 @theme inline {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
+  /* Colors */
+  --color-page-bg: #00101A;
+  --color-header-bg: rgba(16, 20, 23, 0.8);
+  --color-gold-primary: #FFEA9E;
+  --color-text-white: #FFFFFF;
+  --color-text-glow: #FAE287;
+  --color-text-shadow: rgba(0, 0, 0, 0.25);
+  --color-btn-about-bg: #00101A;
+  --color-content-section-bg: rgba(0, 16, 26, 0.6);
+  --color-kudos-text: #DBD1C1;
+  --color-notification-badge: #FF3B30;
+  --color-card-glow: rgba(255, 234, 158, 0.3);
+
+  /* Typography - Font Families (referenced via CSS variables set in layout.tsx) */
+  --font-family-montserrat: var(--font-montserrat);
+  --font-family-digital: var(--font-digital);
+  --font-family-gotham: var(--font-gotham);
+  --font-family-montserrat-alt: var(--font-montserrat-alt);
+
+  /* Spacing */
+  --spacing-page-padding-x: 144px;
+  --spacing-page-padding-y: 96px;
+  --spacing-section-gap: 120px;
+  --spacing-content-padding-y: 120px;
+  --spacing-content-padding-x: 104px;
+  --spacing-content-gap: 32px;
+  --spacing-awards-gap: 80px;
+  --spacing-hero-gap: 40px;
+  --spacing-header-padding-y: 12px;
+  --spacing-header-padding-x: 144px;
+
+  /* Layout */
+  --max-w-page: 1512px;
+  --max-w-content: 1224px;
+  --max-w-content-narrow: 1152px;
+
+  /* Border & Radius */
+  --radius-content-section: 8px;
+
+  /* Shadows */
+  --shadow-nav-active: 0 4px 4px rgba(0, 0, 0, 0.25), 0 0 6px #FAE287;
+
+  /* Login screen tokens */
+  --color-text-cream: #E8DCC8;
+  --color-footer-border: #2E3940;
+  --color-error-text: #FF6B6B;
+
+  /* Kudos design tokens */
+  --color-container-dark: #00070C;
+  --color-card-bg: #FFF8E1;
+  --color-gold-10: rgba(255, 234, 158, 0.10);
+  --color-gold-20: rgba(255, 234, 158, 0.20);
+  --color-gold-40: rgba(255, 234, 158, 0.40);
+  --color-border: #998C5F;
+  --color-text-gray: #999999;
+  --color-text-dark: #00101A;
+  --color-divider: #2E3940;
+  --color-red: #D4271D;
+  --color-red-light: #F17676;
+  --color-badge-bg: #FFF3C6;
+
+  /* Kudo Modal tokens */
+  --color-required: #CF1322;
+  --color-link-red: #E46060;
+  --color-delete-badge: #D4271D;
+
+  /* Kudos radius */
+  --radius-kudos-card: 24px;
+  --radius-carousel-card: 16px;
+  --radius-sidebar-card: 17px;
+  --radius-spotlight: 47px;
+  --radius-pill: 68px;
+  --radius-quote-box: 12px;
+  --radius-badge-pill: 48px;
+  --radius-sticker: 18px;
+
+  /* Kudos spacing */
+  --spacing-card-padding: 40px;
+  --spacing-card-gap: 24px;
+  --spacing-sidebar-padding: 24px;
+  --spacing-feed-sidebar-gap: 80px;
+
+  /* Profile dropdown tokens */
+  --color-gold-25: rgba(255, 234, 158, 0.25);
+  --color-gold-15: rgba(255, 234, 158, 0.15);
+  --color-gold-05: rgba(255, 234, 158, 0.05);
+  --shadow-dropdown: 0 10px 15px rgba(0, 0, 0, 0.3);
+
+  /* Awards page tokens */
+  --color-section-bg: #0F0F0F;
+  --shadow-gold-glow: 0 4px 4px 0 rgba(0,0,0,0.25), 0 0 6px 0 #FAE287;
+  --spacing-award-card-gap: 48px;
+
+  /* FAB tokens */
+  --color-fab-close-bg: #D4271D;
+  --color-fab-close-hover: #B8211A;
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.3s ease-in;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes digitChange {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+:root {
+  --text-shadow-glow: 0 4px 4px rgba(0,0,0,0.25), 0 0 6px #FAE287;
+  --text-shadow-glow-hover: 0 4px 4px rgba(0,0,0,0.25), 0 0 10px #FAE287;
+}
+
+/* Dropdown scrollbar styling (Chrome/Safari) */
+.dropdown-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.dropdown-scrollbar::-webkit-scrollbar-thumb {
+  background: #998C5F;
+  border-radius: 3px;
+}
+.dropdown-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html {
+  scroll-padding-top: 96px; /* header 80px + 16px buffer for anchor nav */
 }
 
 body {
-	background: var(--background);
-	color: var(--foreground);
-	font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
+  background-color: var(--color-page-bg);
+  color: var(--color-text-white);
 }
