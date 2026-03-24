@@ -41,7 +41,7 @@ export default async function AwardsPage() {
     <div className="min-h-screen bg-page-bg">
       <Header activeLink="awards" />
       <AwardsHeroSection />
-      <main className="relative z-10 mx-auto -mt-32 flex max-w-[1440px] flex-col px-4 pt-8 pb-16 sm:px-10 lg:-mt-[180px] lg:px-36 lg:pt-0 lg:pb-page-padding-y">
+      <main className="relative z-10 -mt-32 flex flex-col px-4 pt-8 pb-16 sm:px-10 lg:-mt-[180px] lg:px-36 lg:pt-0 lg:pb-page-padding-y">
         <SectionTitle />
 
         {categories.length === 0 ? (

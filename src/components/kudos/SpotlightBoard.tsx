@@ -69,8 +69,8 @@ export default async function SpotlightBoard() {
         title={t.kudos.spotlightTitle}
       />
 
-      <div className="mt-4 flex justify-center">
-        <div className="relative w-full max-w-[1157px] overflow-hidden rounded-spotlight border border-border">
+      <div className="mt-4">
+        <div className="relative w-full overflow-hidden rounded-spotlight border border-border">
           {/* Dark overlay background */}
           <div className="absolute inset-0 bg-container-dark/70" />
 

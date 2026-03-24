@@ -97,9 +97,9 @@
 
 | Property | Value | Notes |
 |----------|-------|-------|
-| page-width | 1440px | Full page width |
-| content-max-width | 1152px | 1440px - 2 * 144px padding |
-| padding-x | 144px | Horizontal padding |
+| page-width | 1440px | Design reference width (not a hard max-width in CSS) |
+| content-max-width | 1152px | 1440px - 2 * 144px padding (at design width) |
+| padding-x | 144px | Horizontal padding (shared by Header and Main for alignment) |
 | padding-y | 96px | Vertical padding |
 | header-height | 80px | Fixed header height |
 

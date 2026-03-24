@@ -334,7 +334,8 @@ No new packages needed. All required dependencies are already installed:
   <div bg-page-bg min-h-screen>
     <Header activeLink="awards" />
     <AwardsHeroSection />  {/* full-width hero — NOT constrained by max-width */}
-    <main relative z-10 max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-36 pt-8 lg:pt-0 pb-16 lg:pb-page-padding-y -mt-32 lg:-mt-[180px] flex flex-col>
+    <main relative z-10 px-4 sm:px-10 lg:px-36 pt-8 lg:pt-0 pb-16 lg:pb-page-padding-y -mt-32 lg:-mt-[180px] flex flex-col>
+      {/* NOTE: No max-w-[1440px] mx-auto — content uses same px-36 (144px) as Header so edges align on all screen sizes */}
       <SectionTitle />
       <section mt-6 lg:mt-10 flex flex-col lg:flex-row gap-awards-gap>
         <AwardSidebar categories={categories} />
@@ -436,8 +437,8 @@ No new packages needed. All required dependencies are already installed:
 
 **5.3 Desktop (lg: ≥ 1024px)**
 - Full design spec values: `lg:px-36 lg:py-section-gap`
-- Page root: full-width `bg-page-bg` (Hero spans entire viewport). `<main>` has `max-w-[1440px] mx-auto` to cap content at design width.
-- Content area inherits `--max-w-content-narrow: 1152px` (1440 - 2×144px padding)
+- Page root: full-width `bg-page-bg` (Hero spans entire viewport). `<main>` uses `lg:px-36` padding (same as Header) — no `max-w`/`mx-auto` so content edges align with header on all screen sizes.
+- At 1440px viewport, effective content width = 1152px (1440 - 2×144px padding). On wider screens, content grows proportionally.
 - All components use design-style.md specified values
 
 ### Phase 6: Accessibility (US5 — P3)

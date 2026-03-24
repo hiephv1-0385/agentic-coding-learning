@@ -11,7 +11,7 @@ export default function SectionTitle() {
         {t.awards.sectionSubtitle}
       </p>
       <hr className="my-4 h-px w-full border-0 bg-divider" />
-      <h1 className="font-[family-name:var(--font-montserrat)] text-[28px] font-bold leading-tight tracking-[-0.25px] text-gold-primary sm:text-[40px] lg:text-[57px] lg:leading-[64px]">
+      <h1 className="w-full text-center font-[family-name:var(--font-montserrat)] text-[28px] font-bold leading-tight tracking-[-0.25px] text-gold-primary sm:text-[40px] lg:text-[57px] lg:leading-[64px]">
         {t.awards.sectionTitle}
       </h1>
     </div>

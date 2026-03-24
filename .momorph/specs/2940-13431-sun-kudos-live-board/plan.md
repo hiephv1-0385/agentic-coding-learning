@@ -39,7 +39,7 @@ The Kudos Live Board is the main recognition page for SAA 2025, featuring a hero
 | Constitution Rule | How This Plan Complies |
 |-------------------|----------------------|
 | TDD (Red-Green-Refactor) | Each phase writes tests first: API route tests before route implementation, component rendering tests before component code. MSW fixtures are set up in Phase 0 to enable test-first for Phase 1+. |
-| No fixed pixel widths for containers | Design uses 680px/422px at desktop. Implementation uses `max-w-*` + `w-full` with responsive overrides: `lg:max-w-[680px]` for feed, `lg:max-w-[422px]` for sidebar. Mobile/tablet use full width. |
+| No fixed pixel widths for containers | Design uses 680px/422px at desktop. Feed uses `lg:flex-1 lg:min-w-0` to stretch and fill available space; sidebar uses `lg:w-[422px] lg:flex-shrink-0` for fixed width. SpotlightBoard uses full width (no max-w). This ensures all sections align with shared page padding on any screen size. Mobile/tablet use full width. |
 | Mobile-first responsive | Base styles target mobile. Larger breakpoints add complexity via `sm:` and `lg:` prefixes. |
 | `next/image` for all images | All user avatars, sticker images, hero banner, and media thumbnails use `<Image>` with appropriate `sizes` prop. |
 
