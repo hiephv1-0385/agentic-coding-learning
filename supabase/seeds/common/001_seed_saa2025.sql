@@ -3,7 +3,7 @@ INSERT INTO events (name, theme, date_time, venue, livestream_info, hero_banner_
 VALUES (
   'Sun* Annual Awards 2025',
   'ROOT FURTHER',
-  '2025-12-26T18:30:00+07:00',
+  '2026-03-31T18:30:00+07:00',
   'Nhà hát Âu Cơ - Âu Cơ Art Center',
   'Tường thuật trực tiếp qua sóng Livestream',
   '/images/hero-banner.png'
